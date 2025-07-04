@@ -123,7 +123,12 @@
         prn === "202401040179" &&
         password === "CS4-68"
       ) {
-        window.location.href = "Result.docx";
+        const link = document.createElement("a");
+        link.href = "Result.docx";
+        link.download = "Result.docx";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       } else {
         document.getElementById("errorMsg").textContent = "Invalid credentials. Please enter correct details.";
       }
